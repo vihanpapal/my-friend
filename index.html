@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Room</title>
+  <style>
+    /* Some basic styles - you can customize this */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #chat-box {
+      height: 400px;
+      overflow-y: scroll;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    #message-input {
+      width: 80%;
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-box"></div>
+  <input type="text" id="message-input" placeholder="Type your message...">
+  <button onclick="sendMessage()">Send</button>
+
+  <script>
+    function sendMessage() {
+      var messageInput = document.getElementById('message-input');
+      var message = messageInput.value;
+      // You'll need to handle sending this message to other users, possibly using a backend or WebSockets.
+      displayMessage(message);
+      messageInput.value = ''; // Clear input after sending
+    }
+
+    function displayMessage(message) {
+      var chatBox = document.getElementById('chat-box');
+      var messageElement = document.createElement('div');
+      messageElement.innerText = message;
+      chatBox.appendChild(messageElement);
+      // Optionally, you might scroll the chat box to the bottom after adding a new message
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  </script>
+</body>
+</html>
+
